@@ -18,8 +18,7 @@ class PostFactory extends Factory
     {
         return [
             'title'=>fake()->title(),
-            'user_id'=>fake()->numberBetween(),
-            'dscription'=>fake()->text(),
+            'description'=>fake()->text(),
         ];
     }
 }
