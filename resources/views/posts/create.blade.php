@@ -27,9 +27,9 @@
         <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-8">
             <h1 class="text-3xl font-semibold text-gray-900 mb-8">Create New Post</h1>
             
-            <form action="<!-- FORM_ACTION_TO_STORE_POST -->" method="POST">
+            <form action="{{route('post.store')}}" method="POST">
                 <!-- CSRF_TOKEN -->
-                
+                @csrf
                 <!-- Title Input -->
                 <div class="mb-6">
                     <label for="title" class="block text-sm font-medium text-gray-700 mb-2">
@@ -52,7 +52,7 @@
                     </label>
                     <textarea 
                         id="body" 
-                        name="body" 
+                        name="description" 
                         rows="10" 
                         class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-900 focus:border-transparent resize-none"
                         placeholder="Share your thoughts..."

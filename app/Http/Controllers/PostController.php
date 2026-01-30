@@ -13,7 +13,7 @@ class PostController extends Controller
     public function index()
     {
         $posts = Post::latest()->get();
-        return view('posts', compact('posts'));
+        return view('posts.index', compact('posts'));
     }
 
     /**
@@ -21,7 +21,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        return view('posts.create');
     }
 
     /**
@@ -29,15 +29,24 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validate = $request->validate([
+            'title'=> 'required',
+            'description'=> 'required',
+            
+        ]);
+   
+        Post::create($validate);
+
+        return redirect()->route('posts.index');
     }
 
     /**
      * Display the specified resource.
      */
     public function show(Post $post)
-    {
-        //
+    {   
+        $comments = $post->comments;
+        return view('posts.show', compact('comments','post'));
     }
 
     /**

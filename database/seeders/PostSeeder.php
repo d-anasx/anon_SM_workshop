@@ -15,11 +15,5 @@ class PostSeeder extends Seeder
     public function run(): void
     {
         Post::factory(10)->create();
-          Post::factory()->create([
-            'title' => 'title',
-            'user_id' => '12',
-            'description' => 'description',
-        ]);
-        //
     }
 }
